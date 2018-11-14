@@ -8,7 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Assigment {
+public class Assignment {
     Connection conn;
     final String username;
     final String password;
@@ -16,7 +16,7 @@ public class Assigment {
     private final String driver = "oracle.jdbc.driver.OracleDriver";
 
     //1.2.1a
-    public Assigment(String connectionURL, String username, String password) {
+    public Assignment(String connectionURL, String username, String password) {
         conn = null;
         this.connectionURL = connectionURL;
         this.username = username;
