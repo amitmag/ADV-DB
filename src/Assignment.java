@@ -148,7 +148,7 @@ public class Assignment {
     }
 
     //1.2.4
-    public void printSimilarItems(int MID) {
+    public void printSimilarItems(long MID) {
         if (this.conn == null) {
             Connect();
         }
@@ -156,8 +156,8 @@ public class Assignment {
                 " WHERE (MID1 = ?) AND SIMILARITY > 0.3)UNION  (SELECT TITLE,SIMILARITY FROM SIMILARITY JOIN MediaItems ON SIMILARITY.MID1 = MediaItems.MID" +
                 " WHERE (MID2 = ?) AND SIMILARITY > 0.3) ORDER BY SIMILARITY ASC"; //query
         try (PreparedStatement ps = conn.prepareStatement(query)) {//compiling query in the DB
-            ps.setInt(1, MID);
-            ps.setInt(2, MID);
+            ps.setLong(1, MID);
+            ps.setLong(2, MID);
             ResultSet rs = ps.executeQuery();
             System.out.println(String.format("the similar titles for %d are:", MID));
             while (rs.next()) {
